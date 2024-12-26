@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="ReactControls" constructor="MultiSelectLookup" version="1.0.50" display-name-key="MultiSelectLookupPCF" description-key="MultiSelectLookup description" control-type="virtual" >
+    <external-service-usage enabled="false"></external-service-usage>
+     <type-group name="strings">
+      <type>SingleLine.Text</type>
+      <type>SingleLine.TextArea</type>
+      <type>Multiple</type>
+    </type-group>
+    <type-group name="filters">
+      <type>SingleLine.Text</type>
+      <type>Lookup.Simple</type>
+    </type-group>
+    <property
+      name="selectedValues"
+      display-name-key="Control field (used for label in the form)"
+      description-key="(required) bound primary table field for the control (used for label in the form)"
+      of-type-group="strings"
+      usage="bound"
+      required="true" />
+    <property
+      name="relationshipName"
+      display-name-key="Relationship Name"
+      description-key="(required) schemaname of the N:N relationship"
+      of-type="SingleLine.Text"
+      usage="input"
+      required="true" />
+    <property
+      name="relatedEntityName"
+      display-name-key="Lookup Entity Table (dropdown options)"
+      description-key="(required) The lookup table or related entity (Logical name)."
+      of-type="SingleLine.Text"
+      usage="input"
+      required="true" />
+    <property
+      name="lookupPrimaryColumn"
+      display-name-key="Lookup Primary Text Column"
+      description-key="(required)The lookup primary column (Logical name) that contains the data to be displayed in lookup"
+      usage="input"
+      of-type="SingleLine.Text"
+      required="true" />
+    <property
+      name="lookupSecondaryColumn"
+      display-name-key="Lookup Secondary Text Column"
+      description-key="(optional) The lookup secondary column (Logical name) that contains the data to be displayed in lookup"
+      usage="input"
+      of-type="SingleLine.Text"
+      required="false" />
+    <property
+      name="lookupFilterColumn"
+      display-name-key="Filter Column"
+      description-key="(optional) The lookup filter column (Logical name) from the related entity to be used to filter the options"
+      usage="input"
+      of-type="SingleLine.Text" />
+    <property
+      name="filterValueColumn"
+      display-name-key="Filter Value"
+      description-key="(optional) The filter value column (Logical name) from the primary entity that contains the data to be used to filter the options."
+      usage="bound"
+      of-type-group="filters" />
+    <property
+      name="allowAddNew"
+      display-name-key="Allow Add New"
+      description-key="(boolean) when True, displays an Add New button to the combobox dropdown"
+      of-type="TwoOptions"
+      usage="input"
+      required="true" />
+    <!-- <property name="customFilter" display-name-key="Custom Filter" description-key="(optional) when searching for related records, use this odata $Filter expression to limit the searchable records (e.g. `statecode eq 0 and new_mycolumn eq false`)" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="customOrder" display-name-key="Custom Order" description-key="(optional) when searching for related records, use this odata $Order expression to sort the records (e.g. `modifiedon desc`). If not set, defaults to Relevance ranking of results rather than any one column" of-type="SingleLine.Text" usage="input" required="false" /> -->
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.8.6" />
+      <platform-library name="Fluent" version="8.29.0" />
+      <platform-library name="Fluent" version="9.46.2" />      
+    </resources>
+    <feature-usage>
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
